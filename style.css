@@ -22,9 +22,9 @@
   width: 500px;
   height: 200px;
   border: 1px solid black;
-  position: relative;
+  position: relative; /* <-- ADD THIS */
   overflow: hidden;
-  background: white;
+  background: #fff;
 }
 
 /* Character settings */
@@ -62,13 +62,14 @@
 /* Error/instruction text */
 .error {
   position: absolute;
+  font-size: 30px;
+  color: blue;
+  cursor: pointer;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 20px;
-  color: blue;
-  z-index: 10;
-  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10; /* to be on top */
 }
 
 /* Jump animation */

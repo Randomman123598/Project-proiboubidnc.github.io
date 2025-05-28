@@ -25,10 +25,11 @@
   font-size: 30px;
   color: blue;
   cursor: pointer;
-  bottom: 10px;   
-  left: 50%;      
-  transform: translateX(-50%); 
-  white-space: nowrap; 
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 10; 
 }
 
 #game {

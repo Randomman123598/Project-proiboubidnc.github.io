@@ -9,57 +9,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  margin-top: 20px;
+  position: relative;
+  height: 250px;
 }
 
 #score {
   font-size: 25px;
   font-weight: 500;
-  margin-bottom: 10px;
+  pointer-events: none;
 }
 
-#game {
-  width: 500px;
-  height: 200px;
-  border: 1px solid black;
-  position: relative; /* <-- ADD THIS */
-  overflow: hidden;
-  background: #fff;
-}
-
-/* Character settings */
-#character {
-  width: 50px;
-  height: 50px;
-  background-image: url('https://e7.pngegg.com/pngimages/726/411/png-clipart-barack-obama-barack-obama.png');
-  background-size: cover;
-  position: absolute;
-  left: 50px;
-  top: 100px;
-}
-
-/* Obstacle block */
-#block {
-  width: 40px;
-  height: 40px;
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjIAQaO2LPZ_HFEk5WchmeTaJuM15XviAHA&s');
-  background-size: cover;
-  position: absolute;
-  left: 480px;
-  top: 160px;
-}
-
-/* Animate character jump */
-.animate {
-  animation: jump 0.5s linear;
-}
-
-/* Animate block movement */
-.blockAnimate {
-  animation: block 2s linear infinite;
-}
-
-/* Error/instruction text */
 .error {
   position: absolute;
   font-size: 30px;
@@ -69,18 +29,54 @@
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
-  z-index: 10; /* to be on top */
+  z-index: 10;
 }
 
-/* Jump animation */
+#game {
+  width: 500px;
+  height: 200px;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  background: #fff;
+}
+
+#character {
+  width: 50px;
+  height: 50px;
+  background-image: url('https://e7.pngegg.com/pngimages/726/411/png-clipart-barack-obama-barack-obama.png');
+  background-size: cover;
+  position: absolute;
+  top: 150px;
+  left: 50px;
+}
+
+.animate {
+  animation: jump 0.5s linear;
+}
+
+#block {
+  width: 40px;
+  height: 40px;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjIAQaO2LPZ_HFEk5WchmeTaJuM15XviAHA&s');
+  background-size: cover;
+  position: absolute;
+  top: 160px;
+  left: 480px;
+}
+
+.blockAnimate {
+  animation: block 2s linear infinite;
+}
+
 @keyframes jump {
   0% { top: 150px; }
   50% { top: 100px; }
   100% { top: 150px; }
 }
 
-/* Block move animation */
 @keyframes block {
-  0% { left: 500px; }
-  100% { left: -40px; }
+  0% { left: 480px; }
+  100% { left: -20px; }
 }

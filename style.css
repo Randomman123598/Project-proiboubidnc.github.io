@@ -1,0 +1,78 @@
+* {
+    border: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#score {
+    font-size: 25px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+.error {
+    position: absolute;
+    font-size: 30px;
+    color: blue;
+    cursor: pointer;
+}
+
+.pname {
+    padding-top: 10px;
+    font-size: 18px;
+}
+
+#game {
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+#character {
+    width: 50px;
+    height: 50px;
+    background-image: url(https://e7.pngegg.com/pngimages/726/411/png-clipart-barack-obama-barack-obama.png
+); /* Replace with your image file */
+    background-size: cover;
+position: relative;
+    top: 150px;
+}
+
+.animate {
+    animation: jump 500ms linear;
+}
+
+#block {
+    width: 40px;
+    height: 40px;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjIAQaO2LPZ_HFEk5WchmeTaJuM15XviAHA&s
+); /* Replace with your image file */
+    background-size: cover;
+    position: relative;
+    top: 110px;
+    left: 460px;
+}
+
+
+
+.blockAnimate {
+    animation: block 2s linear infinite;
+}
+
+@keyframes jump {
+    0% {top: 150px}
+    50% {top: 100px}
+    70% {top: 100px}
+    100% {top: 150px}
+}
+
+@keyframes block {
+    0% {left: 480px}
+    100% {left: -20px;}
+}

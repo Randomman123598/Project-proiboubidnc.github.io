@@ -4,31 +4,32 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Dino Game</title>
+  <title>My Game</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <div class="wrapper">
     <div id="score">Score: 0</div>
 
     <div id="game">
-    <div id="character"></div>
-    <div id="block"></div>
-    <div class="error">Press SPACE to Start</div>
-</div>
+      <div id="character"></div>
+      <div id="block"></div>
+      <div class="error">Press SPACE to Start</div> <!-- Moved here -->
+    </div>
   </div>
 
   <script>
-    const character = document.getElementById("character");
-    const block = document.getElementById("block");
-    const scoreText = document.getElementById("score");
-    const error = document.querySelector(".error");
+    var character = document.getElementById("character");
+    var block = document.getElementById("block");
+    var scoreText = document.getElementById("score");
+    var error = document.querySelector(".error");
 
-    let score = 0;
-    let isGameOver = false;
+    var score = 0;
+    var isGameOver = false;
 
-    document.body.onkeyup = (e) => {
-      if (e.code === "Space") {
+    document.body.onkeyup = function (e) {
+      if (e.key == " " || e.code == "Space") {
         if (isGameOver) {
           restartGame();
         } else {
@@ -40,11 +41,9 @@
     function jump() {
       if (isGameOver) return;
       error.style.display = "none";
-
       if (!block.classList.contains("blockAnimate")) {
         block.classList.add("blockAnimate");
       }
-
       if (!character.classList.contains("animate")) {
         character.classList.add("animate");
       }
@@ -54,11 +53,11 @@
       }, 500);
     }
 
-    const checkDead = setInterval(() => {
-      const characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-      const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    var checkDead = setInterval(() => {
+      var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+      var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
-      if (blockLeft < 50 && blockLeft > 0 && characterTop >= 130) {
+      if (blockLeft < 90 && blockLeft > 40 && characterTop >= 130) {
         gameOver();
       }
     }, 10);
@@ -66,7 +65,7 @@
     function updateScore() {
       if (!isGameOver) {
         score++;
-        scoreText.textContent = "Score: " + score;
+        scoreText.innerHTML = "Score: " + score;
       }
     }
 
@@ -75,14 +74,14 @@
     function gameOver() {
       isGameOver = true;
       error.style.display = "block";
-      error.textContent = "Game over! Press SPACE to restart.";
+      error.innerHTML = "Game over! Press SPACE to restart.";
       block.classList.remove("blockAnimate");
     }
 
     function restartGame() {
       isGameOver = false;
       score = 0;
-      scoreText.textContent = "Score: " + score;
+      scoreText.innerHTML = "Score: " + score;
       error.style.display = "none";
       block.classList.remove("blockAnimate");
 
@@ -91,5 +90,6 @@
       }, 100);
     }
   </script>
+
 </body>
 </html>

@@ -1,47 +1,39 @@
+/* Reset default spacing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Container for everything */
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-top: 20px;
-  position: relative;
   height: 250px;
 }
 
+/* Score text */
 #score {
   font-size: 25px;
   font-weight: 500;
   pointer-events: none;
+  margin-bottom: 10px;
 }
 
-.error {
-  position: absolute;
-  font-size: 30px;
-  color: blue;
-  cursor: pointer;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  z-index: 10; 
-}
-
+/* Game area */
 #game {
   width: 500px;
   height: 200px;
   border: 1px solid black;
-  position: relative;
+  position: relative; /* important for child positioning */
   overflow: hidden;
-  margin-top: 40px;
   background: #fff;
 }
 
+/* Player character */
 #character {
   width: 50px;
   height: 50px;
@@ -52,10 +44,7 @@
   left: 50px;
 }
 
-.animate {
-  animation: jump 0.5s linear;
-}
-
+/* Block (obstacle) */
 #block {
   width: 40px;
   height: 40px;
@@ -66,17 +55,38 @@
   left: 480px;
 }
 
+/* Character jump animation */
+.animate {
+  animation: jump 0.5s linear;
+}
+
+/* Block movement animation */
 .blockAnimate {
   animation: block 2s linear infinite;
 }
 
+/* Message display */
+.error {
+  position: absolute;
+  font-size: 30px;
+  color: blue;
+  cursor: pointer;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* Jumping animation */
 @keyframes jump {
-  0% { top: 150px; }
-  50% { top: 100px; }
+  0%   { top: 150px; }
+  50%  { top: 100px; }
   100% { top: 150px; }
 }
 
+/* Block sliding from right to left */
 @keyframes block {
-  0% { left: 480px; }
+  0%   { left: 480px; }
   100% { left: -20px; }
 }

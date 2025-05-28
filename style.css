@@ -25,7 +25,10 @@
   font-size: 30px;
   color: blue;
   cursor: pointer;
-  top: 10px;
+  bottom: 10px;   
+  left: 50%;      
+  transform: translateX(-50%); 
+  white-space: nowrap; 
 }
 
 #game {

@@ -6,11 +6,10 @@ var error = document.querySelector(".error");
 var score = 0;
 var isGameOver = false;
 
-// Listen for spacebar press
-document.body.onkeyup = function(e) {
-    if (e.key == " " || e.code == "Space") {
+document.body.onkeyup = function (e) {
+    if (e.code === "Space") {
         if (isGameOver) {
-            restartGame(); // Restart if game over
+            restartGame();
         } else {
             jump();
         }
@@ -18,9 +17,9 @@ document.body.onkeyup = function(e) {
 };
 
 function jump() {
-    if (isGameOver) return; // Prevent jumping after game over
-
+    if (isGameOver) return;
     error.style.display = "none";
+
     if (!block.classList.contains("blockAnimate")) {
         block.classList.add("blockAnimate");
     }
@@ -34,18 +33,15 @@ function jump() {
     }, 500);
 }
 
-// Collision detection and score tracking
 var checkDead = setInterval(() => {
     var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
 
-    // Check if character collides with block
-    if (blockLeft < 20 && blockLeft > 0 && characterTop >= 130) {
+    if (blockLeft < 50 && blockLeft > 0 && characterTop >= 130) {
         gameOver();
     }
 }, 10);
 
-// Score update logic
 function updateScore() {
     if (!isGameOver) {
         score++;
@@ -53,7 +49,6 @@ function updateScore() {
     }
 }
 
-// Start score tracking when block fully passes the character
 block.addEventListener("animationiteration", updateScore);
 
 function gameOver() {
@@ -70,8 +65,7 @@ function restartGame() {
     error.style.display = "none";
     block.classList.remove("blockAnimate");
 
-    // Restart animation with delay for smooth reset
     setTimeout(() => {
         block.classList.add("blockAnimate");
     }, 100);
-} 
+}

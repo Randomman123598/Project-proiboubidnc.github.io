@@ -1,75 +1,78 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  position: relative;
+  height: 250px;
 }
 
 #score {
-    font-size: 25px;
-    font-weight: 500;
-    pointer-events: none;
+  font-size: 25px;
+  font-weight: 500;
+  pointer-events: none;
 }
 
 .error {
-    position: absolute;
-    font-size: 30px;
-    color: blue;
-    cursor: pointer;
-    top: 20px;
+  position: absolute;
+  font-size: 30px;
+  color: blue;
+  cursor: pointer;
+  top: 10px;
 }
 
 #game {
-    width: 500px;
-    height: 200px;
-    border: 1px solid black;
-    position: relative;
-    overflow: hidden;
-    margin-top: 20px;
+  width: 500px;
+  height: 200px;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  background: #fff;
 }
 
 #character {
-    width: 50px;
-    height: 50px;
-    background-image: url('https://e7.pngegg.com/pngimages/726/411/png-clipart-barack-obama-barack-obama.png');
-    background-size: cover;
-    position: absolute;
-    top: 150px;
-    left: 50px;
+  width: 50px;
+  height: 50px;
+  background-image: url('https://e7.pngegg.com/pngimages/726/411/png-clipart-barack-obama-barack-obama.png');
+  background-size: cover;
+  position: absolute;
+  top: 150px;
+  left: 50px;
 }
 
 .animate {
-    animation: jump 0.5s linear;
+  animation: jump 0.5s linear;
 }
 
 #block {
-    width: 40px;
-    height: 40px;
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjIAQaO2LPZ_HFEk5WchmeTaJuM15XviAHA&s');
-    background-size: cover;
-    position: absolute;
-    top: 160px;
-    left: 480px;
+  width: 40px;
+  height: 40px;
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtjIAQaO2LPZ_HFEk5WchmeTaJuM15XviAHA&s');
+  background-size: cover;
+  position: absolute;
+  top: 160px;
+  left: 480px;
 }
 
 .blockAnimate {
-    animation: block 2s linear infinite;
+  animation: block 2s linear infinite;
 }
 
 @keyframes jump {
-    0% { top: 150px; }
-    50% { top: 100px; }
-    100% { top: 150px; }
+  0% { top: 150px; }
+  50% { top: 100px; }
+  100% { top: 150px; }
 }
 
 @keyframes block {
-    0% { left: 480px; }
-    100% { left: -20px; }
+  0% { left: 480px; }
+  100% { left: -20px; }
 }
